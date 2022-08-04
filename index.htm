@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HINT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        *,*::before,*::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -17,7 +20,7 @@
             font-size: 62.5%;
         }
 
-        body{
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 400;
             line-height: 1.7;
@@ -59,12 +62,12 @@
            
         } */
 
-        .form__container h1{
+        .form__container h1 {
             font-size: 3rem;
             color: #333;
             text-transform: uppercase;
             text-align: center;
-            
+
         }
 
         .form__container form h3 {
@@ -73,11 +76,12 @@
             font-weight: normal;
             font-weight: bold;
         }
+
         input[type="text"] {
             width: 100%;
             padding: 2rem 2rem;
             background-color: #80808059;
-            border:none;
+            border: none;
             color: #333;
             border-radius: 1rem;
             font-size: 1.6rem;
@@ -85,14 +89,14 @@
             transition: all .5s ease-in-out;
         }
 
-        input[type="text"]:not(:last-child){
+        input[type="text"]:not(:last-child) {
             margin-bottom: 2rem;
         }
 
-        
 
-        button[type="submit"]{
-            padding: 2rem 3rem;
+
+        button[type="submit"] {
+            padding: 1.5rem 3rem;
             outline: none;
             border: none;
             background-color: rgb(221, 93, 46);
@@ -102,6 +106,7 @@
             font-size: 1.6rem;
             font-weight: bold;
             cursor: pointer;
+            margin-bottom: 2rem;
         }
 
         .form__header {
@@ -111,7 +116,7 @@
             flex-direction: column;
         }
 
-        .form__header .ct-icon{
+        .form__header .ct-icon {
             width: 10rem;
             height: 10rem;
             background-color: rgb(221, 93, 46);
@@ -125,7 +130,7 @@
 
         }
 
-        .form__header h3{
+        .form__header h3 {
             font-size: 3rem;
             margin-top: 1rem;
             color: #333;
@@ -144,10 +149,91 @@
         } */
 
 
+        /*  MCQS QUESTIONS COMPONENT STYLINGS */
+
+        .questions .question {
+            padding: 1rem;
+            font-size: 1.7rem;
+            color: rgb(90, 88, 88);
+
+            margin-top: 2rem;
+        }
+
+        .rating-count {
+            padding: 1rem;
+            font-size: 1.7rem;
+            color: rgb(90, 88, 88);
+
+        }
+
+        .rating-count i {
+            color: rgb(221, 93, 46);
+            font-size: 2rem;
+        }
+
+        .questions .question h3 {
+            font-size: 1.7rem;
+        }
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked+label,
+        [type="radio"]:not(:checked)+label {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+            color: #666;
+        }
+
+        [type="radio"]:checked+label:before,
+        [type="radio"]:not(:checked)+label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            background: #fff;
+        }
+
+        [type="radio"]:checked+label:after,
+        [type="radio"]:not(:checked)+label:after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: rgb(221, 93, 46);
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked)+label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked+label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
         /* Mobile Responsive under 480 or more equall device size */
         @media screen and (max-width: 768px) {
 
-            body{
+            body {
                 transition: all .5s ease-in-out;
             }
 
@@ -156,7 +242,7 @@
                 height: auto;
             }
 
-            .form__container h1{
+            .form__container h1 {
                 font-size: 1.7rem;
                 text-align: left;
             }
@@ -165,27 +251,23 @@
                 width: 100%;
             }
 
-            .form__container form h3{
+            .form__container form h3 {
                 font-size: 1.4rem;
             }
 
-            .custom__half{
+            .custom__half {
                 width: 20rem;
             }
-            
+
 
         }
-
-
-        
-
-
     </style>
 </head>
+
 <body>
     <div class="custom__half"></div>
     <div class="form__container">
-        
+
         <div class="form__header">
             <img src="./logo.jpeg" alt="logo" class="ct-icon">
             <h3>Review Feedback.</h3>
@@ -196,10 +278,47 @@
 
             <h3 class="question___title">Give your feedback</h3>
             <input type="text" name="question__name" id="question__name-1" required>
-            <button type="submit">Submit Answer</button>
+            <!-- <button type="submit">Submit Answer</button> -->
         </form>
+
+        <!-- FETCH MCQ FROM API -->
+        <div class="questions">
+            <div class="question">
+                <h3 class="question-title">Where did you know about us?</h3>
+                <p>
+                    <input type="radio" id="test1" name="radio-group" checked>
+                    <label for="test1">Friend</label>
+                </p>
+                <p>
+                    <input type="radio" id="test2" name="radio-group">
+                    <label for="test2">Newspaper</label>
+                </p>
+                <p>
+                    <input type="radio" id="test3" name="radio-group">
+                    <label for="test3">Social Media</label>
+                </p>
+                <p>
+                    <input type="radio" id="test4" name="radio-group">
+                    <label for="test4">Advertisement</label>
+                </p>
+            </div>
+
+            <div class="rating-count">
+                <h4 class="rating-heading">Review us</h4>
+                <div class="rating">
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </div>
+
     </div>
 
-    
+
 </body>
+
 </html>
